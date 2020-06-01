@@ -1,0 +1,34 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateConfig(
+  $input: CreateConfigInput!
+  $condition: ModelConfigConditionInput
+) {
+  createConfig(input: $input, condition: $condition) {
+    gitHubToken
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation UpdateConfig(
+  $input: UpdateConfigInput!
+  $condition: ModelConfigConditionInput
+) {
+  updateConfig(input: $input, condition: $condition) {
+    gitHubToken
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation DeleteConfig(
+  $input: DeleteConfigInput!
+  $condition: ModelConfigConditionInput
+) {
+  deleteConfig(input: $input, condition: $condition) {
+    gitHubToken
+    createdAt
+    updatedAt
+    owner
+  }
+}

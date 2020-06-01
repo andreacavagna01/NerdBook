@@ -1,0 +1,24 @@
+# this is an auto generated file. This will be overwritten
+query GetConfig($id: ID!) {
+  getConfig(id: $id) {
+    gitHubToken
+    createdAt
+    updatedAt
+    owner
+  }
+}
+query ListConfigs(
+  $filter: ModelConfigFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listConfigs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      gitHubToken
+      createdAt
+      updatedAt
+      owner
+    }
+    nextToken
+  }
+}
