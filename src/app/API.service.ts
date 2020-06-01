@@ -266,9 +266,7 @@ export class APIService {
     )) as any;
     return <ListConfigsQuery>response.data.listConfigs;
   }
-  OnCreateConfigListener: Observable<OnCreateConfigSubscription> = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateConfig($owner: String!) {
+  OnCreateConfigListener: Observable<OnCreateConfigSubscription> = API.graphql(graphqlOperation(`subscription OnCreateConfig($owner: String!) {
         onCreateConfig(owner: $owner) {
           __typename
           gitHubToken
@@ -276,13 +274,9 @@ export class APIService {
           updatedAt
           owner
         }
-      }`
-    )
-  ) as Observable<OnCreateConfigSubscription>;
+      }`)) as unknown as Observable<OnCreateConfigSubscription>;
 
-  OnUpdateConfigListener: Observable<OnUpdateConfigSubscription> = API.graphql(
-    graphqlOperation(
-      `subscription OnUpdateConfig($owner: String!) {
+  OnUpdateConfigListener: Observable<OnUpdateConfigSubscription> = API.graphql(graphqlOperation(`subscription OnUpdateConfig($owner: String!) {
         onUpdateConfig(owner: $owner) {
           __typename
           gitHubToken
@@ -290,13 +284,9 @@ export class APIService {
           updatedAt
           owner
         }
-      }`
-    )
-  ) as Observable<OnUpdateConfigSubscription>;
+      }`)) as unknown as Observable<OnUpdateConfigSubscription>;
 
-  OnDeleteConfigListener: Observable<OnDeleteConfigSubscription> = API.graphql(
-    graphqlOperation(
-      `subscription OnDeleteConfig($owner: String!) {
+  OnDeleteConfigListener: Observable<OnDeleteConfigSubscription> = API.graphql(graphqlOperation(`subscription OnDeleteConfig($owner: String!) {
         onDeleteConfig(owner: $owner) {
           __typename
           gitHubToken
@@ -304,7 +294,5 @@ export class APIService {
           updatedAt
           owner
         }
-      }`
-    )
-  ) as Observable<OnDeleteConfigSubscription>;
+      }`)) as unknown as Observable<OnDeleteConfigSubscription>;
 }
