@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-nerdbook-dev-124727-authRole",
+            "UnauthRoleArn": "arn:aws:iam::069916219055:role/amplify-nerdbook-dev-124727-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::069916219055:role/amplify-nerdbook-dev-124727-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-nerdbook-dev-124727-deployment",
+            "UnauthRoleName": "amplify-nerdbook-dev-124727-unauthRole",
+            "StackName": "amplify-nerdbook-dev-124727",
+            "StackId": "arn:aws:cloudformation:eu-west-1:069916219055:stack/amplify-nerdbook-dev-124727/4a692060-a3f5-11ea-8484-063a4310b160",
+            "AmplifyAppId": "dr82qk9b2d78s"
+        }
+    }
+}
