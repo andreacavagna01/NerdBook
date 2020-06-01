@@ -1,15 +1,20 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-nerdbook-dev-124727-authRole",
-            "UnauthRoleArn": "arn:aws:iam::069916219055:role/amplify-nerdbook-dev-124727-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::069916219055:role/amplify-nerdbook-dev-124727-authRole",
+            "AuthRoleName": "amplify-nerdbook-dev-180500-authRole",
+            "UnauthRoleArn": "arn:aws:iam::069916219055:role/amplify-nerdbook-dev-180500-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::069916219055:role/amplify-nerdbook-dev-180500-authRole",
             "Region": "eu-west-1",
-            "DeploymentBucketName": "amplify-nerdbook-dev-124727-deployment",
-            "UnauthRoleName": "amplify-nerdbook-dev-124727-unauthRole",
-            "StackName": "amplify-nerdbook-dev-124727",
-            "StackId": "arn:aws:cloudformation:eu-west-1:069916219055:stack/amplify-nerdbook-dev-124727/4a692060-a3f5-11ea-8484-063a4310b160",
-            "AmplifyAppId": "dr82qk9b2d78s"
+            "DeploymentBucketName": "amplify-nerdbook-dev-180500-deployment",
+            "UnauthRoleName": "amplify-nerdbook-dev-180500-unauthRole",
+            "StackName": "amplify-nerdbook-dev-180500",
+            "StackId": "arn:aws:cloudformation:eu-west-1:069916219055:stack/amplify-nerdbook-dev-180500/a75a9930-a421-11ea-850f-02f0c9b42810",
+            "AmplifyAppId": "d2tbig20bmhugl"
+        },
+        "categories": {
+            "auth": {
+                "nerdbook8caebf58": {}
+            }
         }
     }
 }

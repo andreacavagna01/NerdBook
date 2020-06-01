@@ -1,1 +1,10 @@
-{}
+{
+	"auth": {
+		"nerdbook8caebf58": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
