@@ -22,6 +22,7 @@
     "@aws-amplify/core": "^3.3.0",
     "@aws-amplify/datastore": "^2.2.0",
     "@aws-amplify/ui-angular": "^0.2.6",
+    "@babel/compat-data": "^7.8.0",
     "aws-amplify": "^3.0.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
