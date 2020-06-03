@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   public form = new FormGroup({
     gitHubToken: new FormControl( '', [Validators.required]),
   });
+    gitHubToken: string;
 
 
   constructor() { }
@@ -21,12 +22,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-    async submitForm() {
-      await DataStore.save(
-          new Config({
-            gitHubToken: this.form.value.gitHubToken
-          })
-      );
-      console.log(this.form.value);
-    }
+  async submitForm() {
+    await DataStore.save(
+        new Config({
+          gitHubToken: this.form.value.gitHubToken,
+        })
+    );
+    console.log(this.form.value);
+  }
 }

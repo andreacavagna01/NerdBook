@@ -1,6 +1,7 @@
 # this is an auto generated file. This will be overwritten
 subscription OnCreateConfig($owner: String!) {
   onCreateConfig(owner: $owner) {
+    id
     gitHubToken
     _version
     _deleted
@@ -12,6 +13,7 @@ subscription OnCreateConfig($owner: String!) {
 }
 subscription OnUpdateConfig($owner: String!) {
   onUpdateConfig(owner: $owner) {
+    id
     gitHubToken
     _version
     _deleted
@@ -23,6 +25,7 @@ subscription OnUpdateConfig($owner: String!) {
 }
 subscription OnDeleteConfig($owner: String!) {
   onDeleteConfig(owner: $owner) {
+    id
     gitHubToken
     _version
     _deleted

@@ -1,6 +1,6 @@
 <div>
     <form [formGroup]="form" (submit)="submitForm()" class="form center-vertical">
-        <input formControlName="gitHubToken" class="form-control" type="text" placeholder="Type your gitHubToken here">
+        <input formControlName="gitHubToken" class="form-control" type="text" placeholder="Type your gitHubToken here" value="{{gitHubToken}}">
         <br>
         <button class="btn btn-light gradient">SUBMIT!</button>
     </form>

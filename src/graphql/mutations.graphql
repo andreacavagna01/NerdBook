@@ -4,6 +4,7 @@ mutation CreateConfig(
   $condition: ModelConfigConditionInput
 ) {
   createConfig(input: $input, condition: $condition) {
+    id
     gitHubToken
     _version
     _deleted
@@ -18,6 +19,7 @@ mutation UpdateConfig(
   $condition: ModelConfigConditionInput
 ) {
   updateConfig(input: $input, condition: $condition) {
+    id
     gitHubToken
     _version
     _deleted
@@ -32,6 +34,7 @@ mutation DeleteConfig(
   $condition: ModelConfigConditionInput
 ) {
   deleteConfig(input: $input, condition: $condition) {
+    id
     gitHubToken
     _version
     _deleted

@@ -12,6 +12,7 @@ query SyncConfigs(
     lastSync: $lastSync
   ) {
     items {
+      id
       gitHubToken
       _version
       _deleted
@@ -26,6 +27,7 @@ query SyncConfigs(
 }
 query GetConfig($id: ID!) {
   getConfig(id: $id) {
+    id
     gitHubToken
     _version
     _deleted
@@ -42,6 +44,7 @@ query ListConfigs(
 ) {
   listConfigs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      id
       gitHubToken
       _version
       _deleted
