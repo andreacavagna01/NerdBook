@@ -1,7 +1,35 @@
 # this is an auto generated file. This will be overwritten
+query SyncConfigs(
+  $filter: ModelConfigFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncConfigs(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      gitHubToken
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
+    nextToken
+    startedAt
+  }
+}
 query GetConfig($id: ID!) {
   getConfig(id: $id) {
     gitHubToken
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner
@@ -15,10 +43,14 @@ query ListConfigs(
   listConfigs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       gitHubToken
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       owner
     }
     nextToken
+    startedAt
   }
 }

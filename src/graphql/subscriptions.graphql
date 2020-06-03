@@ -2,6 +2,9 @@
 subscription OnCreateConfig($owner: String!) {
   onCreateConfig(owner: $owner) {
     gitHubToken
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner
@@ -10,6 +13,9 @@ subscription OnCreateConfig($owner: String!) {
 subscription OnUpdateConfig($owner: String!) {
   onUpdateConfig(owner: $owner) {
     gitHubToken
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner
@@ -18,6 +24,9 @@ subscription OnUpdateConfig($owner: String!) {
 subscription OnDeleteConfig($owner: String!) {
   onDeleteConfig(owner: $owner) {
     gitHubToken
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner

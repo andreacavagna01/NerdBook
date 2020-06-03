@@ -1,1 +1,7 @@
-<p>dashboard works!</p>
+<div>
+    <form [formGroup]="form" (submit)="submitForm()" class="form center-vertical">
+        <input formControlName="gitHubToken" class="form-control" type="text" placeholder="Type your gitHubToken here">
+        <br>
+        <button class="btn btn-light gradient">SUBMIT</button>
+    </form>
+</div>

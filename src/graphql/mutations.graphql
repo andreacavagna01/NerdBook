@@ -5,6 +5,9 @@ mutation CreateConfig(
 ) {
   createConfig(input: $input, condition: $condition) {
     gitHubToken
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner
@@ -16,6 +19,9 @@ mutation UpdateConfig(
 ) {
   updateConfig(input: $input, condition: $condition) {
     gitHubToken
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner
@@ -27,6 +33,9 @@ mutation DeleteConfig(
 ) {
   deleteConfig(input: $input, condition: $condition) {
     gitHubToken
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner

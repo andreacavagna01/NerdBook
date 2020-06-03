@@ -8,6 +8,7 @@ import * as Observable from "zen-observable";
 
 export type CreateConfigInput = {
   gitHubToken: string;
+  _version?: number | null;
 };
 
 export type ModelConfigConditionInput = {
@@ -58,10 +59,12 @@ export type ModelSizeInput = {
 
 export type UpdateConfigInput = {
   gitHubToken?: string | null;
+  _version?: number | null;
 };
 
 export type DeleteConfigInput = {
   id?: string | null;
+  _version?: number | null;
 };
 
 export type ModelConfigFilterInput = {
@@ -74,6 +77,9 @@ export type ModelConfigFilterInput = {
 export type CreateConfigMutation = {
   __typename: "Config";
   gitHubToken: string;
+  _version: number;
+  _deleted: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   owner: string | null;
@@ -82,6 +88,9 @@ export type CreateConfigMutation = {
 export type UpdateConfigMutation = {
   __typename: "Config";
   gitHubToken: string;
+  _version: number;
+  _deleted: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   owner: string | null;
@@ -90,14 +99,36 @@ export type UpdateConfigMutation = {
 export type DeleteConfigMutation = {
   __typename: "Config";
   gitHubToken: string;
+  _version: number;
+  _deleted: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   owner: string | null;
 };
 
+export type SyncConfigsQuery = {
+  __typename: "ModelConfigConnection";
+  items: Array<{
+    __typename: "Config";
+    gitHubToken: string;
+    _version: number;
+    _deleted: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+    owner: string | null;
+  } | null> | null;
+  nextToken: string | null;
+  startedAt: number | null;
+};
+
 export type GetConfigQuery = {
   __typename: "Config";
   gitHubToken: string;
+  _version: number;
+  _deleted: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   owner: string | null;
@@ -108,16 +139,23 @@ export type ListConfigsQuery = {
   items: Array<{
     __typename: "Config";
     gitHubToken: string;
+    _version: number;
+    _deleted: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
     owner: string | null;
   } | null> | null;
   nextToken: string | null;
+  startedAt: number | null;
 };
 
 export type OnCreateConfigSubscription = {
   __typename: "Config";
   gitHubToken: string;
+  _version: number;
+  _deleted: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   owner: string | null;
@@ -126,6 +164,9 @@ export type OnCreateConfigSubscription = {
 export type OnUpdateConfigSubscription = {
   __typename: "Config";
   gitHubToken: string;
+  _version: number;
+  _deleted: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   owner: string | null;
@@ -134,6 +175,9 @@ export type OnUpdateConfigSubscription = {
 export type OnDeleteConfigSubscription = {
   __typename: "Config";
   gitHubToken: string;
+  _version: number;
+  _deleted: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   owner: string | null;
@@ -151,6 +195,9 @@ export class APIService {
         createConfig(input: $input, condition: $condition) {
           __typename
           gitHubToken
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           owner
@@ -175,6 +222,9 @@ export class APIService {
         updateConfig(input: $input, condition: $condition) {
           __typename
           gitHubToken
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           owner
@@ -199,6 +249,9 @@ export class APIService {
         deleteConfig(input: $input, condition: $condition) {
           __typename
           gitHubToken
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           owner
@@ -215,11 +268,55 @@ export class APIService {
     )) as any;
     return <DeleteConfigMutation>response.data.deleteConfig;
   }
+  async SyncConfigs(
+    filter?: ModelConfigFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncConfigsQuery> {
+    const statement = `query SyncConfigs($filter: ModelConfigFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncConfigs(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            gitHubToken
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+            owner
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncConfigsQuery>response.data.syncConfigs;
+  }
   async GetConfig(id: string): Promise<GetConfigQuery> {
     const statement = `query GetConfig($id: ID!) {
         getConfig(id: $id) {
           __typename
           gitHubToken
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           owner
@@ -244,11 +341,15 @@ export class APIService {
           items {
             __typename
             gitHubToken
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
             owner
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -270,6 +371,9 @@ export class APIService {
         onCreateConfig(owner: $owner) {
           __typename
           gitHubToken
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           owner
@@ -280,6 +384,9 @@ export class APIService {
         onUpdateConfig(owner: $owner) {
           __typename
           gitHubToken
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           owner
@@ -290,6 +397,9 @@ export class APIService {
         onDeleteConfig(owner: $owner) {
           __typename
           gitHubToken
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           owner
