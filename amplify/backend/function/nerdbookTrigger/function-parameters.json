@@ -1,0 +1,18 @@
+{
+    "permissions": {
+        "auth": {
+            "nerdbook8caebf58": [
+                "create",
+                "read",
+                "update"
+            ]
+        },
+        "api": {
+            "nerdbook": [
+                "create",
+                "read",
+                "update"
+            ]
+        }
+    }
+}
