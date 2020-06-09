@@ -25,28 +25,6 @@
 		}
 	},
 	"function": {
-		"nerdbookGithubAnalyzer": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
-			"service": "Lambda",
-			"dependsOn": [
-				{
-					"category": "auth",
-					"resourceName": "nerdbook8caebf58",
-					"attributes": [
-						"UserPoolId"
-					]
-				},
-				{
-					"category": "api",
-					"resourceName": "nerdbook",
-					"attributes": [
-						"GraphQLAPIIdOutput",
-						"GraphQLAPIEndpointOutput"
-					]
-				}
-			]
-		},
 		"nerdbookTrigger": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
