@@ -21,8 +21,8 @@ export class DashboardComponent implements OnInit {
 
   async ngOnInit() {
     const config = await DataStore.query(Config);
-    console.log(config[0]);
     this.currentConfig = config[0];
+    console.log(this.currentConfig);
   }
 
   async submitForm() {
