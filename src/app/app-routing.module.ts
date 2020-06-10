@@ -12,7 +12,7 @@ const routes: Routes = [
       {
         path: '',
         component: DashboardLayoutComponent,
-        loadChildren: './dashboard/dashboard.module#DashboardModule'
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ]
   }

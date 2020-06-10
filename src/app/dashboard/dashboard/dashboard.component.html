@@ -1,7 +1,6 @@
 <div>
     <form [formGroup]="form" (submit)="submitForm()" class="form center-vertical">
-        <input formControlName="gitHubToken" class="form-control" type="text" placeholder="Type your gitHubToken here" value="{{gitHubToken}}">
-        <br>
-        <button class="btn btn-light gradient">SUBMIT!</button>
+        <input ngModel="{{currentConfig.gitHubToken}}"  nbInput formControlName="gitHubToken" class="form-control" type="text" placeholder="Type your gitHubToken here" >
+        <button nbButton class="btn btn-light gradient">Enter GitHub Token</button>
     </form>
 </div>

@@ -8,12 +8,19 @@ import awsconfig from '../aws-exports';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardLayoutComponent} from './layout/dashboard-layout/dashboard-layout.component';
+import {NbButtonModule, NbLayoutModule, NbSidebarModule, NbThemeModule} from '@nebular/theme';
+import {LayoutModule} from './layout/layout.module';
 
 Amplify.configure(awsconfig);
 
 @NgModule({
-  declarations: [AppComponent, DashboardLayoutComponent],
-  imports: [AmplifyUIAngularModule, BrowserModule, RouterModule, AppRoutingModule],
+  declarations: [AppComponent],
+  imports: [AmplifyUIAngularModule,
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule,
+    LayoutModule,
+    NbThemeModule.forRoot({ name: 'dark' })],
   providers: [],
   bootstrap: [AppComponent],
 })

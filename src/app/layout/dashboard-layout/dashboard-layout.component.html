@@ -1,2 +1,12 @@
-<p>dashboard-layout works!</p>
-<router-outlet></router-outlet>
+<nb-layout>
+    <nb-layout-header fixed>NerdBook</nb-layout-header>
+
+    <nb-sidebar>Sidebar Content
+        <amplify-sign-out></amplify-sign-out>
+    </nb-sidebar>
+
+    <nb-layout-column>
+        <router-outlet></router-outlet>
+    </nb-layout-column>
+</nb-layout>
+

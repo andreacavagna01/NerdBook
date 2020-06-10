@@ -22,13 +22,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@nebular/theme/styles/prebuilt/dark.css"
             ],
             "scripts": []
           },
@@ -45,7 +46,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -93,7 +93,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@nebular/theme/styles/prebuilt/dark.css"
             ],
             "scripts": []
           }
@@ -124,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "NerdBook"
+    }
+  },
+  "defaultProject": "NerdBook",
+  "cli": {
+    "analytics": "5fe0090d-2726-437b-862c-1e1d5fbecb59"
+  }
 }
