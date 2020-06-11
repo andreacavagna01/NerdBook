@@ -1,8 +1,8 @@
 <div>
     <form [formGroup]="form" (submit)="submitForm()" class="form center-vertical">
         <label>
-            <input ngModel="{{currentConfig.gitHubToken}}"  nbInput formControlName="gitHubToken" class="form-control" type="text" placeholder="Type your gitHubToken here" >
+            <input ngModel="{{currentConfig?.gitHubToken}}"  nbInput formControlName="gitHubToken" class="form-control" type="text" placeholder="Type your gitHubToken here" >
         </label>
-        <button nbButton class="btn btn-light gradient" [disabled]="currentConfig!==undefined">Enter GitHub Token</button>
+        <button nbButton class="btn btn-light gradient">Enter GitHub Token</button>
     </form>
 </div>

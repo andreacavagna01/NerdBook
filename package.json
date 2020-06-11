@@ -25,6 +25,7 @@
     "@aws-amplify/ui-angular": "^0.2.6",
     "@nebular/eva-icons": "^5.1.0",
     "@nebular/theme": "^5.1.0",
+    "@octokit/core": "^2.5.4",
     "aws-amplify": "^3.0.7",
     "rxjs": "~6.5.5",
     "tslib": "^1.10.0",
