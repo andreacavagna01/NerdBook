@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
     const user = await DataStore.query(User);
     this.username = user[0].gitHubUsername;
     this.githubService.getUserInfos(this.username).then(value => {this.user = value.user; console.log(this.user); });
+
   }
 
   async submitForm() {
