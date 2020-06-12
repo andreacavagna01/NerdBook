@@ -1,11 +1,24 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateConfig(
-  $input: CreateConfigInput!
-  $condition: ModelConfigConditionInput
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  createConfig(input: $input, condition: $condition) {
+  createUser(input: $input, condition: $condition) {
     id
-    gitHubToken
+    gitHubUsername
+    friends {
+      items {
+        id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -14,13 +27,26 @@ mutation CreateConfig(
     owner
   }
 }
-mutation UpdateConfig(
-  $input: UpdateConfigInput!
-  $condition: ModelConfigConditionInput
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  updateConfig(input: $input, condition: $condition) {
+  updateUser(input: $input, condition: $condition) {
     id
-    gitHubToken
+    gitHubUsername
+    friends {
+      items {
+        id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -29,13 +55,110 @@ mutation UpdateConfig(
     owner
   }
 }
-mutation DeleteConfig(
-  $input: DeleteConfigInput!
-  $condition: ModelConfigConditionInput
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  deleteConfig(input: $input, condition: $condition) {
+  deleteUser(input: $input, condition: $condition) {
     id
-    gitHubToken
+    gitHubUsername
+    friends {
+      items {
+        id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation CreateUserFriend(
+  $input: CreateUserFriendInput!
+  $condition: ModelUserFriendConditionInput
+) {
+  createUserFriend(input: $input, condition: $condition) {
+    id
+    user {
+      id
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation UpdateUserFriend(
+  $input: UpdateUserFriendInput!
+  $condition: ModelUserFriendConditionInput
+) {
+  updateUserFriend(input: $input, condition: $condition) {
+    id
+    user {
+      id
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation DeleteUserFriend(
+  $input: DeleteUserFriendInput!
+  $condition: ModelUserFriendConditionInput
+) {
+  deleteUserFriend(input: $input, condition: $condition) {
+    id
+    user {
+      id
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
     _version
     _deleted
     _lastChangedAt

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import {RouterModule} from '@angular/router';
-import {NbButtonModule, NbLayoutModule, NbSidebarModule} from '@nebular/theme';
+import {NbButtonModule, NbLayoutModule, NbMenuModule, NbSidebarModule} from '@nebular/theme';
 import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
 
 
@@ -15,7 +15,8 @@ import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
         NbLayoutModule,
         NbSidebarModule.forRoot(),
         NbButtonModule,
-        AmplifyUIAngularModule
+        AmplifyUIAngularModule,
+        NbMenuModule.forRoot()
     ]
 })
 export class LayoutModule { }

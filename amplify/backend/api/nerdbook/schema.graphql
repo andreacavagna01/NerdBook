@@ -1,4 +1,12 @@
-type Config @model @auth(rules: [{ allow: owner }]) {
+type User @model @auth(rules: [{ allow: owner }]) {
   id: ID!
-  gitHubToken: String!
+  gitHubUsername: String!
+  friends: [UserFriend] @connection(name: "UserFriends")
 }
+
+type UserFriend @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  user: User @connection(name: "UserFriends")
+}
+
+

@@ -7,8 +7,7 @@ import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
-import {DashboardLayoutComponent} from './layout/dashboard-layout/dashboard-layout.component';
-import {NbButtonModule, NbLayoutModule, NbSidebarModule, NbThemeModule} from '@nebular/theme';
+import {NbThemeModule} from '@nebular/theme';
 import {LayoutModule} from './layout/layout.module';
 
 Amplify.configure(awsconfig);

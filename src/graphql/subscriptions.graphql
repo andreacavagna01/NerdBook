@@ -1,8 +1,21 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateConfig($owner: String!) {
-  onCreateConfig(owner: $owner) {
+subscription OnCreateUser($owner: String!) {
+  onCreateUser(owner: $owner) {
     id
-    gitHubToken
+    gitHubUsername
+    friends {
+      items {
+        id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -11,10 +24,23 @@ subscription OnCreateConfig($owner: String!) {
     owner
   }
 }
-subscription OnUpdateConfig($owner: String!) {
-  onUpdateConfig(owner: $owner) {
+subscription OnUpdateUser($owner: String!) {
+  onUpdateUser(owner: $owner) {
     id
-    gitHubToken
+    gitHubUsername
+    friends {
+      items {
+        id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -23,10 +49,98 @@ subscription OnUpdateConfig($owner: String!) {
     owner
   }
 }
-subscription OnDeleteConfig($owner: String!) {
-  onDeleteConfig(owner: $owner) {
+subscription OnDeleteUser($owner: String!) {
+  onDeleteUser(owner: $owner) {
     id
-    gitHubToken
+    gitHubUsername
+    friends {
+      items {
+        id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    owner
+  }
+}
+subscription OnCreateUserFriend($owner: String!) {
+  onCreateUserFriend(owner: $owner) {
+    id
+    user {
+      id
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    owner
+  }
+}
+subscription OnUpdateUserFriend($owner: String!) {
+  onUpdateUserFriend(owner: $owner) {
+    id
+    user {
+      id
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    owner
+  }
+}
+subscription OnDeleteUserFriend($owner: String!) {
+  onDeleteUserFriend(owner: $owner) {
+    id
+    user {
+      id
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
     _version
     _deleted
     _lastChangedAt

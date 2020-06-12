@@ -1,0 +1,16 @@
+<div>
+
+</div>
+<nb-tabset>
+    <nb-tab tabTitle="Home">
+        Tab content 1
+    </nb-tab>
+    <nb-tab tabTitle="Settings">
+        <form [formGroup]="form" (submit)="submitForm()" class="form center-vertical">
+            <label>
+                <input ngModel="{{username}}"  nbInput formControlName="gitHubUsername" class="form-control" type="text" placeholder="Type your gitHub username" >
+            </label>
+            <button nbButton class="btn btn-light gradient">Enter GitHub Username</button>
+        </form>
+    </nb-tab>
+</nb-tabset>

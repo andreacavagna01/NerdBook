@@ -1,8 +1,10 @@
 <nb-layout>
-    <nb-layout-header fixed>NerdBook</nb-layout-header>
-
-    <nb-sidebar>Sidebar Content
-        <amplify-sign-out></amplify-sign-out>
+    <nb-layout-header [fixed]="true">
+        <h1>NerdBook</h1>
+    </nb-layout-header>
+    <nb-sidebar style="margin-top: 10px">
+        <nb-menu [items]="items"></nb-menu>
+        <amplify-sign-out style="top: 21px; position: relative;"></amplify-sign-out>
     </nb-sidebar>
 
     <nb-layout-column>

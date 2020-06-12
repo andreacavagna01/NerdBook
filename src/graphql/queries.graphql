@@ -1,11 +1,11 @@
 # this is an auto generated file. This will be overwritten
-query SyncConfigs(
-  $filter: ModelConfigFilterInput
+query SyncUsers(
+  $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
   $lastSync: AWSTimestamp
 ) {
-  syncConfigs(
+  syncUsers(
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -13,7 +13,11 @@ query SyncConfigs(
   ) {
     items {
       id
-      gitHubToken
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
       _version
       _deleted
       _lastChangedAt
@@ -25,10 +29,23 @@ query SyncConfigs(
     startedAt
   }
 }
-query GetConfig($id: ID!) {
-  getConfig(id: $id) {
+query GetUser($id: ID!) {
+  getUser(id: $id) {
     id
-    gitHubToken
+    gitHubUsername
+    friends {
+      items {
+        id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -37,15 +54,108 @@ query GetConfig($id: ID!) {
     owner
   }
 }
-query ListConfigs(
-  $filter: ModelConfigFilterInput
+query ListUsers(
+  $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listConfigs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      gitHubToken
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncUserFriends(
+  $filter: ModelUserFriendFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUserFriends(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      user {
+        id
+        gitHubUsername
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetUserFriend($id: ID!) {
+  getUserFriend(id: $id) {
+    id
+    user {
+      id
+      gitHubUsername
+      friends {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      owner
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    owner
+  }
+}
+query ListUserFriends(
+  $filter: ModelUserFriendFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserFriends(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      user {
+        id
+        gitHubUsername
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
       _version
       _deleted
       _lastChangedAt
