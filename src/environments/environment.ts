@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  githubToken: 'd228857e1191413ccecb8b527687d82c8a761471',
+  githubToken: '584db568b8f96ce6cd4ec7a261f8aa012e97e1fa',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
