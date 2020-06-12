@@ -3,7 +3,22 @@
 </div>
 <nb-tabset>
     <nb-tab tabTitle="Home">
-        Tab content 1
+        <nb-card>
+            <nb-card-header>
+                <nb-user size="large"
+                         name="{{user.login}}"
+                         title="{{user.location}}"
+                         picture="{{user.avatarUrl}}">
+                </nb-user>
+            </nb-card-header>
+            <nb-card-body>
+                {{user.bio}}
+            </nb-card-body>
+            <nb-card-footer>
+                <span>Following: {{user.following.totalCount}}</span>
+                <span>Followers: {{user.followers.totalCount}}</span>
+            </nb-card-footer>
+        </nb-card>
     </nb-tab>
     <nb-tab tabTitle="Settings">
         <form [formGroup]="form" (submit)="submitForm()" class="form center-vertical">

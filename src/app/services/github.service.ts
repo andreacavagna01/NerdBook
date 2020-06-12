@@ -11,24 +11,32 @@ export class GithubService {
 
   constructor() {
     this.oktokit = new Octokit({auth: environment.githubToken});
+    console.log(environment.githubToken);
   }
 
-  async getUserInfos(username: string) {
+  async getUserInfos(username: string){
     return await this.oktokit.graphql(
         `
         query {
           user(login: "${username}") {
+            avatarUrl
+            email
             login
-            repositories(last: 10) {
-              nodes {
-                description
-                owner {
-                  login
-                }
-              }
+            followers {
+              totalCount
             }
+            following {
+              totalCount
+            }
+            location
+            twitterUsername
+            url
+            websiteUrl
+            bio
+            company
           }
         }
+
         `
     );
   }

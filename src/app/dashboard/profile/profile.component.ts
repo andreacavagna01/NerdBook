@@ -14,6 +14,7 @@ import {GithubService} from '../../services/github.service';
 export class ProfileComponent implements OnInit {
 
   username: string;
+  user: any;
 
   public form = new FormGroup({
     gitHubUsername: new FormControl( '', [Validators.required]),
@@ -24,7 +25,7 @@ export class ProfileComponent implements OnInit {
   async ngOnInit() {
     const user = await DataStore.query(User);
     this.username = user[0].gitHubUsername;
-    this.githubService.getUserInfos(this.username).then(console.log);
+    this.githubService.getUserInfos(this.username).then(value => {this.user = value.user; console.log(this.user); });
   }
 
   async submitForm() {

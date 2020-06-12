@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {NbButtonModule, NbInputModule, NbLayoutModule, NbTabsetModule} from '@nebular/theme';
+import {NbButtonModule, NbCardModule, NbInputModule, NbLayoutModule, NbTabsetModule, NbUserModule} from '@nebular/theme';
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -17,7 +17,9 @@ import { ProfileComponent } from './profile/profile.component';
         NbLayoutModule,
         NbInputModule,
         NbButtonModule,
-        NbTabsetModule
+        NbTabsetModule,
+        NbCardModule,
+        NbUserModule
     ]
 })
 export class DashboardModule { }
