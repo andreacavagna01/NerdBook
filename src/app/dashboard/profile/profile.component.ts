@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataStore} from '@aws-amplify/datastore';
 import {User} from '../../../models';
-import {Octokit} from '@octokit/core';
-import {environment} from '../../../environments/environment';
-import {GithubService} from '../../services/github.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +17,7 @@ export class ProfileComponent implements OnInit {
     gitHubUsername: new FormControl( '', [Validators.required]),
   });
 
-  constructor(private githubService: GithubService) { }
+  constructor() { }
 
   async ngOnInit() {
     const user = await DataStore.query(User);

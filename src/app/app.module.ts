@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import Amplify from 'aws-amplify';
-import awsconfig from '../aws-exports';
+import awsconfig from "../aws-exports";
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {NbThemeModule} from '@nebular/theme';
