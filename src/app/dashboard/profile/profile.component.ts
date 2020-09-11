@@ -25,22 +25,9 @@ export class ProfileComponent implements OnInit {
   async ngOnInit() {
     const user = await DataStore.query(User);
     this.username = user[0].gitHubUsername;
-    this.githubService.getUserInfos(this.username).then(value => {this.user = value.user; console.log(this.user); });
 
   }
 
   async submitForm() {
-    const user = await DataStore.query(User);
-    if (user) {
-      User.copyOf(user[0], updated => {
-        updated.gitHubUsername = this.form.value.gitHubUsername;
-      });
-    } else {
-      await DataStore.save(
-          new User({
-            gitHubUsername: this.form.value.gitHubUsername,
-          })
-      );
-    }
   }
 }
